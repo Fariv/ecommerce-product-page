@@ -8,6 +8,9 @@ const TopBarRightSideStyled = styled.div`
     > div {
         padding: 0 0.65rem;
         margin: 0 0.65rem;
+        > img {
+            cursor: pointer;
+        }
     }
 `;
 
