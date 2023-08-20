@@ -1,14 +1,14 @@
 import React from 'react'
 import TopBarStyled from './styled/TopBarStyled';
-import LogoStyled from './styled/LogoStyled';
 import Menus from './Menus';
 import TopBarLeftSideStyled from './styled/TopBarLeftSideStyled';
+import Logo from './Logo';
 
 const TopBar = () => {
     return (
         <TopBarStyled>
             <TopBarLeftSideStyled>
-                <LogoStyled>sneakers</LogoStyled>
+                <Logo url={"#"}>sneakers</Logo>
                 <Menus />
             </TopBarLeftSideStyled>
             <div>
