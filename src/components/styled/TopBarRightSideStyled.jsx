@@ -4,7 +4,8 @@ const TopBarRightSideStyled = styled.div`
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    div {
+
+    > div {
         padding: 0 0.65rem;
         margin: 0 0.65rem;
     }
