@@ -17,6 +17,10 @@ const MenuStyled = styled.li`
     &:active,
     &:hover {
         border-bottom: 4px solid hsl(26, 100%, 55%);
+        color: #000;
+    }
+    &:hover > a {
+        color: #000;
     }
 `;
 

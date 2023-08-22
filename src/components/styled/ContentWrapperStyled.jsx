@@ -2,8 +2,8 @@ import { styled } from "styled-components";
 
 const ContentWrapperStyled = styled.div`
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-around;
+    padding-top: 5rem;
     padding-bottom: 1rem;
     min-height: 100vh;
 `;
