@@ -23,8 +23,8 @@ const ProductImages = () => {
     ];
     return (
         <ProductImagesStyled>
-            <ProductImage image={ProductImage1} width="500px" height="500px" isrounded={true} />
-            <OtherImages images={images} />
+            <ProductImage image={ProductImage1} width="500px" height="500px" isrounded={1} />
+            <OtherImages images={images} selectedimage={ProductImage1} />
         </ProductImagesStyled>
     );
 }
