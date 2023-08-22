@@ -5,10 +5,19 @@ const MenuWrapperStyled = styled.ul`
     display: flex;
     list-style: none;
     color: hsl(219, 9%, 45%);
+    padding: 0;
+    margin: 0;
 `;
 const MenuStyled = styled.li`
-    margin-left: 2.8rem;
+    margin: 0 0 0 2.8rem;
     color: hsl(219, 9%, 45%);
+    padding: 2.8rem 0 2.5rem 0;
+    border-bottom: 4px solid transparent;
+    &:focus,
+    &:active,
+    &:hover {
+        border-bottom: 4px solid hsl(26, 100%, 55%);
+    }
 `;
 
 const MenuLinkStyled = styled.a`
