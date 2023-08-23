@@ -1,4 +1,3 @@
-import React from 'react'
 import styled from 'styled-components';
 
 const ProductImageStyled = styled.div`
@@ -6,7 +5,7 @@ const ProductImageStyled = styled.div`
     background-size: cover;
     width: ${props => props.width};
     height: ${props => props.height};
-    border-radius: ${props => props.isrounded ? "12px": 0};
+    border-radius: ${props => props.isrounded ? "12px" : 0};
     cursor: pointer;
     &:focus > .transparent-layer,
     &:hover > .transparent-layer,
@@ -14,19 +13,30 @@ const ProductImageStyled = styled.div`
         background-color: rgba(255, 255, 255, 0.5);
         width: 100%;
         height: 100%;
-        border-radius: ${props => props.isrounded ? "12px": 0};
+        border-radius: ${props => props.isrounded ? "12px" : 0};
     }
     &.active {
         border: 3px solid hsl(26, 100%, 55%);
-        border-radius: ${props => props.isrounded ? "12px": 0};
+        border-radius: ${props => props.isrounded ? "12px" : 0};
     }
 `;
 
-const ProductImage = ({ image, width, height, isrounded, islayer, selectedimage }) => {
-    
+const ProductImage = ({ image, width, height, isrounded, islayer, selectedimage, showBackdrop, setShowBackdrop }) => {
+
     let imageclassname = selectedimage === image ? 'active' : '';
+
+    const showPopup = () => {
+        if (setShowBackdrop) {
+
+            if (showBackdrop) {
+                setShowBackdrop(0);
+            } else {
+                setShowBackdrop(1);
+            }
+        }
+    }
     return (
-        <ProductImageStyled className={imageclassname} image={image} width={width} height={height} isrounded={isrounded}>
+        <ProductImageStyled onClick={showPopup} className={imageclassname} image={image} width={width} height={height} isrounded={isrounded}>
             {islayer ? <div className='transparent-layer'></div> : null}
         </ProductImageStyled>
     );
