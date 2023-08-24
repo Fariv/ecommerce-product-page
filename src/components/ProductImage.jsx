@@ -1,8 +1,6 @@
 import {styled, css} from 'styled-components';
 import Popup from './Popup';
 import OtherImages from './OtherImages';
-import IconNext from "../assets/images/icon-next.svg";
-import IconPrevious from "../assets/images/icon-previous.svg";
 
 const ProductImageStyled = styled.div`
     background: url("${props => props.image}") no-repeat;
