@@ -11,12 +11,14 @@ import PopupContext from '../contexts/PopupContext';
 
 const ProductImagesStyled = styled.div`
     display: flex;
+    align-items: center;
     flex-direction: column;
+    width: 50%;
 `;
 
 const ProductImages = () => {
 
-    const {showBackdrop, setShowBackdrop, setPopupEl} = useContext(PopupContext);
+    const {showBackdrop, setShowBackdrop, popupEl, setPopupEl} = useContext(PopupContext);
     const images = [
         ProductImageThumb1,
         ProductImageThumb2,
@@ -25,19 +27,23 @@ const ProductImages = () => {
     ];
     return (
         <ProductImagesStyled>
-            <ProductImage 
-                image={ProductImage1} 
-                width="500px" 
-                height="500px" 
-                isrounded={1} 
-                showBackdrop={showBackdrop} 
-                setShowBackdrop={setShowBackdrop} 
-                setPopupEl={setPopupEl} 
-            />
-            <OtherImages 
-                images={images} 
-                selectedimage={ProductImage1} 
-            />
+            <div>
+                <ProductImage 
+                    image={ProductImage1} 
+                    images={images} 
+                    width="450px" 
+                    height="450px" 
+                    isrounded={1} 
+                    showBackdrop={showBackdrop} 
+                    setShowBackdrop={setShowBackdrop} 
+                    popupEl={popupEl} 
+                    setPopupEl={setPopupEl} 
+                />
+                <OtherImages 
+                    images={images} 
+                    selectedimage={ProductImage1} 
+                />
+            </div>
         </ProductImagesStyled>
     );
 }

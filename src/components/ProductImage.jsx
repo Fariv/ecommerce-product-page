@@ -1,5 +1,8 @@
-import styled from 'styled-components';
+import {styled, css} from 'styled-components';
 import Popup from './Popup';
+import OtherImages from './OtherImages';
+import IconNext from "../assets/images/icon-next.svg";
+import IconPrevious from "../assets/images/icon-previous.svg";
 
 const ProductImageStyled = styled.div`
     background: url("${props => props.image}") no-repeat;
@@ -22,7 +25,36 @@ const ProductImageStyled = styled.div`
     }
 `;
 
-const ProductImage = ({ image, width, height, isrounded, islayer, selectedimage, showBackdrop, setShowBackdrop, setPopupEl }) => {
+const sharedIconStyle = css`
+    background-color: hsl(0, 0%, 100%);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    position: absolute;
+    top: calc(50% - 72px);
+    cursor: pointer;
+    > svg {
+        stroke: hsl(0, 0%, 0%);
+    }
+`;
+
+const LeftArrowStyled = styled.div`
+    left: -25px;
+    > svg {
+        margin: 15px 17px;
+    }
+    ${sharedIconStyle}
+`;
+
+const RightArrowStyled = styled.div`
+    right: -27px;
+    > svg {
+        margin: 15px 19px;
+    }
+    ${sharedIconStyle}
+`;
+
+const ProductImage = ({ image, images, width, height, isrounded, islayer, selectedimage, showBackdrop, setShowBackdrop, setPopupEl }) => {
 
     let imageclassname = selectedimage === image ? 'active' : '';
 
@@ -42,6 +74,16 @@ const ProductImage = ({ image, width, height, isrounded, islayer, selectedimage,
                             height="500px" 
                             isrounded={1}
                         />
+                        <OtherImages 
+                            images={images} 
+                            selectedimage={image} 
+                        />
+                        <LeftArrowStyled>
+                            <svg width="12" height="18" xmlns="http://www.w3.org/2000/svg"><path d="M11 1 3 9l8 8" stroke="#1D2026" strokeWidth="3" fill="none" fillRule="evenodd"/></svg>
+                        </LeftArrowStyled>
+                        <RightArrowStyled>
+                            <svg width="13" height="18" xmlns="http://www.w3.org/2000/svg"><path d="m2 1 8 8-8 8" stroke="#1D2026" strokeWidth="3" fill="none" fillRule="evenodd"/></svg>
+                        </RightArrowStyled>
                     </Popup>
                 ])
             }
