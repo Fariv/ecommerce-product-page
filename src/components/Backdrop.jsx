@@ -3,11 +3,12 @@ import BackdropStyled from './styled/BackdropStyled';
 import PopupContext from '../contexts/PopupContext';
 
 const Backdrop = () => {
-    const {showBackdrop, setShowBackdrop} = useContext(PopupContext);
+    const {showBackdrop, setShowBackdrop, setPopupEl} = useContext(PopupContext);
 
     const closePopup = () => {
         if (showBackdrop) {
             setShowBackdrop(0);
+            setPopupEl([]);
         } else {
             setShowBackdrop(1);
         }

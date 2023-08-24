@@ -16,7 +16,7 @@ const ProductImagesStyled = styled.div`
 
 const ProductImages = () => {
 
-    const {showBackdrop, setShowBackdrop} = useContext(PopupContext);
+    const {showBackdrop, setShowBackdrop, setPopupEl} = useContext(PopupContext);
     const images = [
         ProductImageThumb1,
         ProductImageThumb2,
@@ -25,8 +25,19 @@ const ProductImages = () => {
     ];
     return (
         <ProductImagesStyled>
-            <ProductImage image={ProductImage1} width="500px" height="500px" isrounded={1} showBackdrop={showBackdrop} setShowBackdrop={setShowBackdrop} />
-            <OtherImages images={images} selectedimage={ProductImage1} />
+            <ProductImage 
+                image={ProductImage1} 
+                width="500px" 
+                height="500px" 
+                isrounded={1} 
+                showBackdrop={showBackdrop} 
+                setShowBackdrop={setShowBackdrop} 
+                setPopupEl={setPopupEl} 
+            />
+            <OtherImages 
+                images={images} 
+                selectedimage={ProductImage1} 
+            />
         </ProductImagesStyled>
     );
 }
