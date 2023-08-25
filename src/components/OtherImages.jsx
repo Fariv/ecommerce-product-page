@@ -1,6 +1,7 @@
 import React from 'react'
 import ProductImage from './ProductImage';
 import { styled } from 'styled-components';
+import filenameparser from "../helpers/file";
 
 const OtherImagesStyled = styled.div`
     display: flex;
@@ -10,10 +11,7 @@ const OtherImagesStyled = styled.div`
 
 const OtherImages = ({images, selectedimage}) => {
     
-    let filename = selectedimage.replace(/^.*[\\\/]/, '');
-    let splitted = filename.split('.');
-    let extension = splitted.pop();
-    let basename = splitted.shift();
+    const { filename, extension, basename } = filenameparser(selectedimage);
     let rawfilename = basename + '-thumbnail.' + extension;
     selectedimage = selectedimage.replace(filename, rawfilename);
 
