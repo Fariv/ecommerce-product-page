@@ -2,9 +2,13 @@ import Popup from './Popup';
 import OtherImages from './OtherImages';
 import filenameparser from '../helpers/file';
 import { LeftArrowStyled, ProductImageStyled, RightArrowStyled } from './styled/ProductImageStyled';
+import { useContext } from 'react';
+import MainProductImageContext from '../contexts/MainProductImageContext';
+import ProductImages from './ProductImages';
 
 const ProductImage = ({ image, images, width, height, isrounded, islayer, selectedimage, showBackdrop, setShowBackdrop, setPopupEl }) => {
 
+    const { setProductImagesEl } = useContext(MainProductImageContext);
     let imageclassname = selectedimage === image ? 'active' : '';
 
     const shuffleImage = (imagesarray, productimage, direction) => {
@@ -89,6 +93,11 @@ const ProductImage = ({ image, images, width, height, isrounded, islayer, select
                     </Popup>
                 ])
             }
+        } else {
+
+            setProductImagesEl([
+                <ProductImages  key={Math.random(60)} images={images} selectedImage={image.replace('-thumbnail', '')} />
+            ]);
         }
     }
 

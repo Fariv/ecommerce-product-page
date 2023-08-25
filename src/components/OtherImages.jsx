@@ -17,7 +17,7 @@ const OtherImages = ({images, selectedimage}) => {
 
     let imgthumbnailscomp = [];
     images.forEach(function(img, i) {
-        imgthumbnailscomp.push( <ProductImage key={Math.random(i+1)} image={img} width="90px" height="90px" isrounded={1} islayer={1} selectedimage={selectedimage} /> );
+        imgthumbnailscomp.push( <ProductImage key={Math.random(i+1)} images={images} image={img} width="90px" height="90px" isrounded={1} islayer={1} selectedimage={selectedimage} /> );
     });
     return (
         <OtherImagesStyled>
