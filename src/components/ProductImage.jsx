@@ -1,57 +1,7 @@
-import {styled, css} from 'styled-components';
 import Popup from './Popup';
 import OtherImages from './OtherImages';
 import filenameparser from '../helpers/file';
-
-const ProductImageStyled = styled.div`
-    background: url("${props => props.image}") no-repeat;
-    background-size: cover;
-    width: ${props => props.width};
-    height: ${props => props.height};
-    border-radius: ${props => props.isrounded ? "12px" : 0};
-    cursor: pointer;
-    &:focus > .transparent-layer,
-    &:hover > .transparent-layer,
-    &.active > .transparent-layer {
-        background-color: rgba(255, 255, 255, 0.5);
-        width: 100%;
-        height: 100%;
-        border-radius: ${props => props.isrounded ? "12px" : 0};
-    }
-    &.active {
-        border: 3px solid hsl(26, 100%, 55%);
-        border-radius: ${props => props.isrounded ? "12px" : 0};
-    }
-`;
-
-const sharedIconStyle = css`
-    background-color: hsl(0, 0%, 100%);
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    position: absolute;
-    top: calc(50% - 72px);
-    cursor: pointer;
-    > svg {
-        stroke: hsl(0, 0%, 0%);
-    }
-`;
-
-const LeftArrowStyled = styled.div`
-    left: -25px;
-    > svg {
-        margin: 15px 17px;
-    }
-    ${sharedIconStyle}
-`;
-
-const RightArrowStyled = styled.div`
-    right: -27px;
-    > svg {
-        margin: 15px 19px;
-    }
-    ${sharedIconStyle}
-`;
+import { LeftArrowStyled, ProductImageStyled, RightArrowStyled } from './styled/ProductImageStyled';
 
 const ProductImage = ({ image, images, width, height, isrounded, islayer, selectedimage, showBackdrop, setShowBackdrop, setPopupEl }) => {
 
@@ -66,7 +16,7 @@ const ProductImage = ({ image, images, width, height, isrounded, islayer, select
         let shuffledImage = null;
         imagesarray.forEach(function(img, i) {
             if (img === selectedthumbnail) {
-                
+
                 if (direction==="next") {
                     if (i+1 === imagesarray.length) {
     
