@@ -12,12 +12,14 @@ import BadgeStyled from './styled/BadgeStyled';
 import AddToCartContext from '../contexts/AddToCartContext';
 import useWindowDimensions from '../hooks/useWindowDimensions';
 import IconMenu from "../assets/images/icon-menu.svg";
+import PopupContext from '../contexts/PopupContext';
 
 let cartDropdownMenu = '';
 const TopBar = () => {
 
     const { width } = useWindowDimensions();
     const { qtyInCart } = useContext(AddToCartContext);
+    const { setShowBackdrop, isSideMenuOpened, setIsSideMenuOpened } = useContext(PopupContext);
     const [isOpened, setIsOpened] = useState(0);
     const showHideCartDropdownMenu = () => {
         if (!isOpened) {
@@ -31,6 +33,24 @@ const TopBar = () => {
         }
     }
 
+    const showSideMenu = () => {
+        if (!isSideMenuOpened) {
+
+            setIsSideMenuOpened(1);
+            setShowBackdrop(1)
+        } else {
+
+            setIsSideMenuOpened(0);
+            setShowBackdrop(0)
+        }
+    }
+
+    const closeMenu = (e) => {
+        e.preventDefault();
+        setIsSideMenuOpened(0);
+        setShowBackdrop(0)
+    }
+
     return (
         <TopBarStyled>
             <TopBarLeftSideStyled>
@@ -39,10 +59,10 @@ const TopBar = () => {
                         margin: '1.2rem 0 1.2rem 0.8rem',
                         padding: '0.8rem 0.8rem 0.8rem 0.8rem',
                         cursor: 'pointer',
-                    }} />
+                    }} onClick={showSideMenu} />
                 ) : null}
                 <Logo url={"#"}>sneakers</Logo>
-                <Menus />
+                <Menus open={isSideMenuOpened} closeMenu={closeMenu} />
             </TopBarLeftSideStyled>
             <TopBarRightSideStyled>
                 <CartIconWrapperStyled onClick={showHideCartDropdownMenu}>

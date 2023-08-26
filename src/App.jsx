@@ -6,6 +6,7 @@ import PopupContext from "./contexts/PopupContext"
 function App() {
     const [showBackdrop, setShowBackdrop] = useState(0);
     const [popupEl, setPopupEl] = useState([]);
+    const [isSideMenuOpened, setIsSideMenuOpened] = useState(0);
     return (
         <>
             <PopupContext.Provider value={{
@@ -13,6 +14,8 @@ function App() {
                     setShowBackdrop,
                     popupEl, 
                     setPopupEl,
+                    isSideMenuOpened,
+                    setIsSideMenuOpened,
                 }}
             >
                 <PageContainer />

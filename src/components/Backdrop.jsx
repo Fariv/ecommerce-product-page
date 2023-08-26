@@ -3,10 +3,10 @@ import BackdropStyled from './styled/BackdropStyled';
 import PopupContext from '../contexts/PopupContext';
 
 const Backdrop = () => {
-    const {showBackdrop, setShowBackdrop, setPopupEl} = useContext(PopupContext);
+    const {showBackdrop, setShowBackdrop, setPopupEl, isSideMenuOpened} = useContext(PopupContext);
 
     const closePopup = () => {
-        if (showBackdrop) {
+        if (showBackdrop && !isSideMenuOpened) {
             setShowBackdrop(0);
             setPopupEl([]);
         } else {

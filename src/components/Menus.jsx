@@ -13,7 +13,8 @@ const MenuWrapperStyled = styled.ul`
         height: 100%;
         width: 300px;
         top: 0;
-        left: -300px;
+        left: ${prop => prop.open ? '0' : '-300px'};
+        transition: left 0.5s ease-in-out;
         z-index: 3;
         background: #fff;
         padding: 1.5rem 0 0 1.5rem;
@@ -40,11 +41,17 @@ const MenuStyled = styled.li`
         margin: 0;
         padding: 0 0 1rem 0;
         font-weight: 700;
+        border-bottom: 4px solid transparent;
         &.close-menu {
             display: block;
             font-size: 26px;
             font-weight: 700;
             padding: 0 0 2rem 0;
+        }
+        &:focus,
+        &:active,
+        &:hover {
+            border-bottom: 4px solid transparent;
         }
     }
     
@@ -68,10 +75,11 @@ const MenuLinkStyled = styled.a`
     }
 `;
 
-const Menus = () => {
+const Menus = ({open, closeMenu}) => {
+
     return (
-        <MenuWrapperStyled>
-            <MenuStyled className='close-menu'><MenuLinkStyled href="#" className='close-menu-link'>&times;</MenuLinkStyled></MenuStyled>
+        <MenuWrapperStyled open={open}>
+            <MenuStyled className='close-menu'><MenuLinkStyled href="#" className='close-menu-link' onClick={closeMenu} >&times;</MenuLinkStyled></MenuStyled>
             <MenuStyled><MenuLinkStyled href="#collections">Collections</MenuLinkStyled></MenuStyled>
             <MenuStyled><MenuLinkStyled href="#men">Men</MenuLinkStyled></MenuStyled>
             <MenuStyled><MenuLinkStyled href="#women">Women</MenuLinkStyled></MenuStyled>
