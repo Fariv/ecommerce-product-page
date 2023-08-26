@@ -9,6 +9,19 @@ const ProductDetailsStyled = styled.div`
     width: 50%;
     padding-top: 4.5rem;
     padding-left: 4.5rem;
+    > .price-wrapper {
+        display: flex;
+        flex-direction: column;
+    }
+    @media (max-width: 841px) {
+        width: 100%;
+        padding: 1.5rem;
+        > .price-wrapper {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+    }
 `;
 
 const SubtitleStyled = styled.div`
@@ -53,6 +66,9 @@ const ProductAddToCartRow = styled.div`
     display: flex;
     justify-content: space-between;
     margin-top: 2.5rem;
+    @media (max-width: 841px) {
+        flex-direction: column;
+    }
 `;
 
 const PaddingStyle = css`
@@ -73,6 +89,7 @@ const DecrementalButton = styled.button`
     border-bottom-left-radius: 10px;
     font-size: 35px;
     font-weight: 700;
+    width: 50px;
     ${PaddingStyle}
 `;
 
@@ -82,6 +99,7 @@ const IncrementalButton = styled.button`
     border-bottom-right-radius: 10px;
     font-size: 35px;
     font-weight: 700;
+    width: 50px;
     ${PaddingStyle}
 `;
 
@@ -95,6 +113,9 @@ const QtyInputStyled = styled.input`
     width: 73px;
     padding: 25px 2px 11px 2px;
     text-align: center;
+    @media (max-width: 841px) {
+        width: calc(100% - 100px);
+    }
 `;
 
 const AddToCartBtnStyled = styled.button`
@@ -121,6 +142,10 @@ const AddToCartBtnStyled = styled.button`
     }
     > svg {
         margin-right: 20px;
+    }
+    @media (max-width: 841px) {
+        padding: 1rem;
+        margin: 2rem 0;
     }
 `;
 
@@ -152,15 +177,17 @@ const ProductDetails = () => {
             <SubtitleStyled>SNEAKER COMPANY</SubtitleStyled>
             <HeaderTextStyled>Fall Limited Edition Sneakers</HeaderTextStyled>
             <ParagraphStyled>These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they'll withstand everything the weather can offer.</ParagraphStyled>
-            <div>
-                <PriceTagStyled>${price}</PriceTagStyled>
-                <DiscountBadge>50%</DiscountBadge>
-            </div>
-            <OriginalPriceTagWrapperStyled>
-                <span>$250.00</span>
-            </OriginalPriceTagWrapperStyled>
-            <ProductAddToCartRow>
+            <div className='price-wrapper'>
                 <div>
+                    <PriceTagStyled>${price}</PriceTagStyled>
+                    <DiscountBadge>50%</DiscountBadge>
+                </div>
+                <OriginalPriceTagWrapperStyled>
+                    <span>$250.00</span>
+                </OriginalPriceTagWrapperStyled>
+            </div>
+            <ProductAddToCartRow>
+                <div className='counter-wrapper'>
                     <DecrementalButton type='button' onClick={() => changeQty('decrement')} >-</DecrementalButton>
                     <QtyInputStyled type='text' value={qty} onChange={qtyHandler} />
                     <IncrementalButton type='button' onClick={() => changeQty('increment')} >+</IncrementalButton>

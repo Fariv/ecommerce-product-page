@@ -9,6 +9,9 @@ const ProductImagesStyled = styled.div`
     align-items: center;
     flex-direction: column;
     width: 50%;
+    @media (max-width: 841px) {
+        width: 100%;
+    }
 `;
 
 const ProductImages = ({images, selectedImage}) => {
