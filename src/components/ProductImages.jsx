@@ -45,9 +45,6 @@ const ProductImages = ({images, selectedImage}) => {
     const shuffleImage = (imagesarray, productimage, direction) => {
         
         const { filename, extension, basename } = filenameparser(productimage);
-        console.log(filename);
-        console.log(basename);
-        console.log(extension);
         const rawfilename = basename + '-thumbnail.' + extension;
         const selectedthumbnail = productimage.replace(filename, rawfilename);
 
