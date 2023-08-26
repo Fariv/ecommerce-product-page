@@ -2,21 +2,17 @@ import React, { useState } from 'react'
 import ContentWrapperStyled from './styled/ContentWrapperStyled'
 import ProductImages from './ProductImages'
 import ProductDetails from './ProductDetails'
-import selectedImage from '../assets/images/image-product-1.jpg';
-import ProductImageThumb1 from '../assets/images/image-product-1-thumbnail.jpg';
-import ProductImageThumb2 from '../assets/images/image-product-2-thumbnail.jpg';
-import ProductImageThumb3 from '../assets/images/image-product-3-thumbnail.jpg';
-import ProductImageThumb4 from '../assets/images/image-product-4-thumbnail.jpg';
 import MainProductImageContext from "../contexts/MainProductImageContext";
 
 
 export default () => {
 
+    const selectedImage = 'images/image-product-1.jpg';
     const images = [
-        ProductImageThumb1,
-        ProductImageThumb2,
-        ProductImageThumb3,
-        ProductImageThumb4,
+        'images/image-product-1-thumbnail.jpg',
+        'images/image-product-2-thumbnail.jpg',
+        'images/image-product-3-thumbnail.jpg',
+        'images/image-product-4-thumbnail.jpg',
     ];
 
     const [productImagesEl, setProductImagesEl] = useState([

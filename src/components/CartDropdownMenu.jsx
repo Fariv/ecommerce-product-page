@@ -1,5 +1,4 @@
 import React, { useContext } from 'react'
-import productImage1Thumb from "../assets/images/image-product-1-thumbnail.jpg";
 import CartDropdownMenuStyled from './styled/CartDropdownMenuStyled';
 import IconDelete from './styled/IconDeleteStyled';
 import AddToCartContext from '../contexts/AddToCartContext';
@@ -7,8 +6,8 @@ import AddToCartContext from '../contexts/AddToCartContext';
 const CartDropdownMenu = () => {
     const { qtyInCart, priceInCart, setQtyInCart, setPriceInCart } = useContext(AddToCartContext);
 
+    const productImage1Thumb = "images/image-product-1-thumbnail.jpg";
     const removeFromCart = (e) => {
-        console.log(e)
         setQtyInCart(0);
         setPriceInCart(0);
     }
