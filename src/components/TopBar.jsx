@@ -10,10 +10,13 @@ import CartIconWrapperStyled from './styled/CartIconWrapperStyled';
 import CartDropdownMenu from './CartDropdownMenu';
 import BadgeStyled from './styled/BadgeStyled';
 import AddToCartContext from '../contexts/AddToCartContext';
+import useWindowDimensions from '../hooks/useWindowDimensions';
+import IconMenu from "../assets/images/icon-menu.svg";
 
 let cartDropdownMenu = '';
 const TopBar = () => {
 
+    const { width } = useWindowDimensions();
     const { qtyInCart } = useContext(AddToCartContext);
     const [isOpened, setIsOpened] = useState(0);
     const showHideCartDropdownMenu = () => {
@@ -31,6 +34,13 @@ const TopBar = () => {
     return (
         <TopBarStyled>
             <TopBarLeftSideStyled>
+                {width < 842 ? (
+                    <img src={IconMenu} alt='icon-menu' style={{
+                        margin: '1.2rem 0 1.2rem 0.8rem',
+                        padding: '0.8rem 0.8rem 0.8rem 0.8rem',
+                        cursor: 'pointer',
+                    }} />
+                ) : null}
                 <Logo url={"#"}>sneakers</Logo>
                 <Menus />
             </TopBarLeftSideStyled>

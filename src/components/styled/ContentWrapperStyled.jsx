@@ -7,6 +7,7 @@ const ContentWrapperStyled = styled.div`
     min-height: 100vh;
     @media (max-width: 841px) {
         flex-direction: column;
+        padding-top: 0;
     }
 `;
 

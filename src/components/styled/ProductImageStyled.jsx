@@ -19,6 +19,9 @@ export const ProductImageStyled = styled.div`
         border: 3px solid hsl(26, 100%, 55%);
         border-radius: ${props => props.isrounded ? "12px" : 0};
     }
+    @media (max-width: 841px) {
+        width: 100%;
+    }
 `;
 
 export const sharedIconStyle = css`
@@ -32,6 +35,9 @@ export const sharedIconStyle = css`
     > svg {
         stroke: hsl(0, 0%, 0%);
     }
+    @media (max-width: 841px) {
+        top: calc(50% - 25px);
+    }
 `;
 
 export const LeftArrowStyled = styled.div`
@@ -40,6 +46,9 @@ export const LeftArrowStyled = styled.div`
         margin: 15px 17px;
     }
     ${sharedIconStyle}
+    @media (max-width: 841px) {
+        left: 1.5rem;
+    }
 `;
 
 export const RightArrowStyled = styled.div`
@@ -48,4 +57,7 @@ export const RightArrowStyled = styled.div`
         margin: 15px 19px;
     }
     ${sharedIconStyle}
+    @media (max-width: 841px) {
+        right: 1.5rem;
+    }
 `;

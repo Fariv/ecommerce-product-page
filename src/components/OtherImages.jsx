@@ -7,6 +7,9 @@ const OtherImagesStyled = styled.div`
     display: flex;
     justify-content: space-between;
     margin: 2rem 0;
+    @media (max-width: 841px) {
+        display: none;
+    }
 `;
 
 const OtherImages = ({images, selectedimage}) => {

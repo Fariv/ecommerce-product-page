@@ -7,6 +7,17 @@ const MenuWrapperStyled = styled.ul`
     color: hsl(219, 9%, 45%);
     padding: 0;
     margin: 0;
+    @media (max-width: 841px) {
+        flex-direction: column;
+        position: fixed;
+        height: 100%;
+        width: 300px;
+        top: 0;
+        left: -300px;
+        z-index: 3;
+        background: #fff;
+        padding: 1.5rem 0 0 1.5rem;
+    }
 `;
 const MenuStyled = styled.li`
     margin: 0 0 0 2.8rem;
@@ -22,6 +33,21 @@ const MenuStyled = styled.li`
     &:hover > a {
         color: #000;
     }
+    &.close-menu {
+        display: none;
+    }
+    @media (max-width: 841px) {
+        margin: 0;
+        padding: 0 0 1rem 0;
+        font-weight: 700;
+        &.close-menu {
+            display: block;
+            font-size: 26px;
+            font-weight: 700;
+            padding: 0 0 2rem 0;
+        }
+    }
+    
 `;
 
 const MenuLinkStyled = styled.a`
@@ -30,11 +56,22 @@ const MenuLinkStyled = styled.a`
     &:visited {
         color: hsl(219, 9%, 45%);
     }
+    @media (max-width: 841px) {
+        color: hsl(220, 13%, 13%);
+        &:visited {
+            color: hsl(220, 13%, 13%);
+        }
+        &.close-menu-link:visited,
+        &.close-menu-link {
+            color: hsl(219, 9%, 45%);
+        }
+    }
 `;
 
 const Menus = () => {
     return (
         <MenuWrapperStyled>
+            <MenuStyled className='close-menu'><MenuLinkStyled href="#" className='close-menu-link'>&times;</MenuLinkStyled></MenuStyled>
             <MenuStyled><MenuLinkStyled href="#collections">Collections</MenuLinkStyled></MenuStyled>
             <MenuStyled><MenuLinkStyled href="#men">Men</MenuLinkStyled></MenuStyled>
             <MenuStyled><MenuLinkStyled href="#women">Women</MenuLinkStyled></MenuStyled>

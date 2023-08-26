@@ -10,6 +10,13 @@ const CartDropdownMenuStyled = styled.div`
     top: 6rem;
     background-color: hsl(0, 0%, 100%);
     width: 298px;
+    @media (max-width: 841px) {
+        z-index: 1;
+        left: 0;
+        right: 0;
+        width: 90%;
+        margin: 0 auto;
+    }
 
     > .header {
         font-weight: 700;
