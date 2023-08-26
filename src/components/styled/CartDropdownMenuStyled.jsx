@@ -9,6 +9,7 @@ const CartDropdownMenuStyled = styled.div`
     right: 0;
     top: 6rem;
     background-color: hsl(0, 0%, 100%);
+    width: 298px;
 
     > .header {
         font-weight: 700;
@@ -23,6 +24,13 @@ const CartDropdownMenuStyled = styled.div`
         padding: 1.5rem;
         font-size: 13px;
         color: hsl(219, 9%, 45%);
+
+        > .empty {
+            font-weight: 700;
+            text-align: center;
+            padding: 2rem 0;
+            width: 100%;
+        }
 
         > .column {
             margin-right: 10px;
