@@ -28,12 +28,15 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
+![](./ss/ss1.jpg)
+![](./ss/ss2.jpg)
+![](./ss/ss3.jpg)
+![](./ss/ss4.jpg)
+![](./ss/ss5.jpg)
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Live Site URL: [Ecommerce Product Page](https://fariv.github.io/ecommerce-product-page/)
 
 ## My process
 
